@@ -37,7 +37,7 @@ body {
 }
 @media (any-hover: hover) {
   .kumiko-container:nth-child(even) img:hover {
-    transform: rotate3d(1, 1, 0, 25deg);
+    transform: rotate3d(1, 1, 0.2, 25deg);
   }
 }
 .kumiko-container:nth-child(odd) {
@@ -45,7 +45,7 @@ body {
 }
 @media (any-hover: hover) {
   .kumiko-container:nth-child(odd) img:hover {
-    transform: rotate3d(1, 1, 0, -25deg);
+    transform: rotate3d(1, 1, 0.2, -25deg);
   }
 }
 .kumiko-container img {
@@ -58,6 +58,10 @@ body {
           user-select: none;
   transform: none;
   transition: 0.25s;
+  box-shadow: rgba(195, 199, 203, 0.3) 0px 1px 2px 0px, rgba(195, 199, 203, 0.15) 0px 1px 3px 1px;
+}
+.kumiko-container img:hover {
+  box-shadow: rgba(195, 199, 203, 0.25) 0px 6px 12px -2px, rgba(255, 255, 255, 0.3) 0px 3px 7px -3px;
 }
 
 @keyframes animateEven {
@@ -89,12 +93,12 @@ body {
 }
 @keyframes rotate-diagonal-2 {
   0% {
-    transform: rotate3d(-1, 1, 0, 0deg);
+    transform: rotate3d(1, 1, 0, 2360deg);
   }
   50% {
-    transform: rotate3d(-1, 1, 0, 180deg);
+    transform: rotate3d(1, 1, 0, -180deg);
   }
   100% {
-    transform: rotate3d(-1, 1, 0, 360deg);
+    transform: rotate3d(1, 1, 0, 0deg);
   }
 }/*# sourceMappingURL=index.css.map */

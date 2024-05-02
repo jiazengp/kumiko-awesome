@@ -35,7 +35,7 @@ body {
     animation: animateEven 100s linear infinite;
     @media (any-hover: hover) {
       img:hover {
-        transform: rotate3d(1, 1, 0, 25deg);
+        transform: rotate3d(1, 1, 0.2, 25deg);
       }
     }
   }
@@ -44,7 +44,7 @@ body {
     animation: animateOdd 100s linear infinite;
     @media (any-hover: hover) {
       img:hover {
-        transform: rotate3d(1, 1, 0, -25deg);
+        transform: rotate3d(1, 1, 0.2, -25deg);
       }
     }
   }
@@ -57,6 +57,14 @@ body {
     user-select: none;
     transform: none;
     transition: 0.25s;
+    box-shadow:
+      rgba(195, 199, 203, 0.3) 0px 1px 2px 0px,
+      rgba(195, 199, 203, 0.15) 0px 1px 3px 1px;
+    &:hover {
+      box-shadow:
+        rgba(195, 199, 203, 0.25) 0px 6px 12px -2px,
+        rgba(255, 255, 255, 0.3) 0px 3px 7px -3px;
+    }
   }
 }
 
@@ -82,27 +90,24 @@ body {
 
 @keyframes rotate-diagonal-1 {
   0% {
-    -webkit-transform: rotate3d(1, 1, 0, 0deg);
     transform: rotate3d(1, 1, 0, 0deg);
   }
   50% {
-    -webkit-transform: rotate3d(1, 1, 0, -180deg);
     transform: rotate3d(1, 1, 0, -180deg);
   }
   100% {
-    -webkit-transform: rotate3d(1, 1, 0, -360deg);
     transform: rotate3d(1, 1, 0, -360deg);
   }
 }
 
 @keyframes rotate-diagonal-2 {
   0% {
-    transform: rotate3d(-1, 1, 0, 0deg);
+    transform: rotate3d(1, 1, 0, 2360deg);
   }
   50% {
-    transform: rotate3d(-1, 1, 0, 180deg);
+    transform: rotate3d(1, 1, 0, -180deg);
   }
   100% {
-    transform: rotate3d(-1, 1, 0, 360deg);
+    transform: rotate3d(1, 1, 0, 0deg);
   }
 }
