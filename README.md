@@ -8,4 +8,4 @@
 
 ## License
 
-KumikoAwesome is licensed under the [MIT License].
+KumikoAwesome is licensed under the [MIT License](https://github.com/jiazengp/kumiko-awesome/blob/master/License).
