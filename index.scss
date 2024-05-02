@@ -46,9 +46,10 @@ body {
   }
 
   img {
+    touch-action: manipulation;
     width: 120px;
     height: 120px;
-    cursor: default;
+    cursor: grab;
     user-select: none;
     transform: none;
     transition: 0.25s;

@@ -45,9 +45,10 @@ body {
   transform: rotate3d(1, 1, 0, -25deg);
 }
 .kumiko-container img {
+  touch-action: manipulation;
   width: 120px;
   height: 120px;
-  cursor: default;
+  cursor: grab;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
