@@ -7,7 +7,7 @@ class KumikoAwesome {
   constructor(row, count) {
     this.row = row;
     this.count = count;
-    console.log(this.#image)
+    this.preload()
   }
 
   init(className) {
@@ -26,6 +26,7 @@ class KumikoAwesome {
   loadKumiko(containerElement) {
     for (let i = 1; i < this.count; i++) {
       const img = document.createElement('img');
+      img.loading = 'lazy'
       img.src = this.getOneRoadomKumikoImage();
       containerElement.appendChild(img)
     }
@@ -35,13 +36,22 @@ class KumikoAwesome {
     const isEvenRow = id % 2 === 0;
     element.addEventListener('click', (e) => {
       if (e.target === e.currentTarget) return;
-      e.target.style = `animation: rotate-diagonal-${isEvenRow ? 1 : 2} 0.4s linear both;`
+      e.target.style = `animation: rotate-diagonal-${isEvenRow ? 1 : 2} 0.3s linear both;`
       e.target.src = this.getOneRoadomKumikoImage();
       e.target.addEventListener('animationend', (e) => e.target.style = '')
       e.target.removeEventListener(animationend)
     })
   }
 
+  preload() {
+    this.#image.forEach(val => {
+      const linkElement = document.createElement("link");
+      linkElement.href = val;
+      linkElement.rel = 'preload';
+      linkElement.as = 'image';
+      document.head.appendChild(linkElement);
+    })
+  }
   getOneRoadomKumikoImage() {
     if (!this.#imageStack.length || this.#image.length == this.#imageStack.length) {
       this.#imageStack = this.#image.slice().sort(_ => Math.random() - 0.5)
