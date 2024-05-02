@@ -39,7 +39,7 @@ class KumikoAwesome {
     element.addEventListener('click', (e) => {
       if (e.target === e.currentTarget) return
       if (e.target.style.animation !== '') speed = .2;
-      if (previous !== null) previous.removeEventListener('animationend', removeAnimation)
+      if (previous !== null && previous !== e.target) previous.removeEventListener('animationend', removeAnimation)
       e.target.style = `animation: rotate-diagonal-${isEvenRow ? 1 : 2} ${speed}s linear both;`
       e.target.src = this.getOneRoadomKumikoImage()
       e.target.addEventListener('animationend', removeAnimation)
