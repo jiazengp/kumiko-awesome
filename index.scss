@@ -33,20 +33,24 @@ body {
   width: 200dvw;
   &:nth-child(even) {
     animation: animateEven 100s linear infinite;
-    img:hover:focus:active {
-      transform: rotate3d(1, 1, 0, 25deg);
+    @media (any-hover: hover) {
+      img:hover {
+        transform: rotate3d(1, 1, 0, 25deg);
+      }
     }
   }
 
   &:nth-child(odd) {
     animation: animateOdd 100s linear infinite;
-    img:hover:focus:active {
-      transform: rotate3d(1, 1, 0, -25deg);
+    @media (any-hover: hover) {
+      img:hover {
+        transform: rotate3d(1, 1, 0, -25deg);
+      }
     }
   }
 
   img {
-    touch-action: manipulation;
+    touch-action: none;
     width: 120px;
     height: 120px;
     cursor: grab;
