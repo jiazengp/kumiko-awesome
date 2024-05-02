@@ -35,13 +35,13 @@ body {
 .kumiko-container:nth-child(even) {
   animation: animateEven 100s linear infinite;
 }
-.kumiko-container:nth-child(even) img:hover {
+.kumiko-container:nth-child(even) img:hover:focus:active {
   transform: rotate3d(1, 1, 0, 25deg);
 }
 .kumiko-container:nth-child(odd) {
   animation: animateOdd 100s linear infinite;
 }
-.kumiko-container:nth-child(odd) img:hover {
+.kumiko-container:nth-child(odd) img:hover:focus:active {
   transform: rotate3d(1, 1, 0, -25deg);
 }
 .kumiko-container img {
