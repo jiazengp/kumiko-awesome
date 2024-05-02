@@ -68,6 +68,10 @@ body {
   }
 }
 
+.no-animation {
+  animation: none !important;
+}
+
 @keyframes animateEven {
   0%,
   100% {
