@@ -1,0 +1,95 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #111;
+}
+
+.main-container {
+  position: absolute;
+  top: 0;
+  top: 0;
+  width: 100dvw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.group {
+  position: relative;
+  transform: rotate(-30deg);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.kumiko-container {
+  display: flex;
+  gap: 0.5rem;
+  width: 200dvw;
+}
+.kumiko-container:nth-child(even) {
+  animation: animateEven 100s linear infinite;
+}
+.kumiko-container:nth-child(even) img:hover {
+  transform: rotate3d(1, 1, 0, 25deg);
+}
+.kumiko-container:nth-child(odd) {
+  animation: animateOdd 100s linear infinite;
+}
+.kumiko-container:nth-child(odd) img:hover {
+  transform: rotate3d(1, 1, 0, -25deg);
+}
+.kumiko-container img {
+  width: 120px;
+  height: 120px;
+  cursor: default;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  transform: none;
+  transition: 0.25s;
+}
+
+@keyframes animateEven {
+  0%, 100% {
+    transform: translateX(0dvw);
+  }
+  50% {
+    transform: translateX(-100dvw);
+  }
+}
+@keyframes animateOdd {
+  0%, 100% {
+    transform: translateX(-100dvw);
+  }
+  50% {
+    transform: translateX(0dvw);
+  }
+}
+@keyframes rotate-diagonal-1 {
+  0% {
+    transform: rotate3d(1, 1, 0, 0deg);
+  }
+  50% {
+    transform: rotate3d(1, 1, 0, -180deg);
+  }
+  100% {
+    transform: rotate3d(1, 1, 0, -360deg);
+  }
+}
+@keyframes rotate-diagonal-2 {
+  0% {
+    transform: rotate3d(-1, 1, 0, 0deg);
+  }
+  50% {
+    transform: rotate3d(-1, 1, 0, 180deg);
+  }
+  100% {
+    transform: rotate3d(-1, 1, 0, 360deg);
+  }
+}/*# sourceMappingURL=index.css.map */
