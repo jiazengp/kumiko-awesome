@@ -31,7 +31,38 @@
     <div class="group">
     </div>
   </main>
-  <script src="./index.js"></script>
+  <script src="./kumiko-awesome.js"></script>
+  <script>
+    const images = [
+      'kumiko-1.jpg', 'kumiko-2.jpg', 'kumiko-3.jpg', 'kumiko-4.jpg', 'kumiko-5.jpg', 'kumiko-6.jpg', 'kumiko-7.jpg', 'kumiko-8.jpg', 'kumiko-9.jpg', 'kumiko-10.jpg', 'kumiko-11.jpg', 'kumiko-12.jpg', 'kumiko-13.jpg', 'kumiko-14.jpg', 'kumiko-15.jpg', 'kumiko-16.jpg', 'kumiko-17.jpg', 'kumiko-18.jpg', 'kumiko-19.jpg', 'kumiko-20.jpg', 'kumiko-21.jpg', 'kumiko-22.jpg', 'kumiko-23.jpg', 'kumiko-24.jpg', 'kumiko-25.jpg', 'kumiko-26.jpg', 'kumiko-27.jpg', 'kumiko-28.jpg', 'kumiko-29.jpg', 'kumiko-30.jpg', 'kumiko-31.jpg', 'kumiko-32.jpg', 'kumiko-33.jpg', 'kumiko-34.jpg', 'kumiko-35.jpg', 'kumiko-36.jpg', 'kumiko-37.jpg', 'kumiko-38.jpg', 'kumiko-39.jpg', 'kumiko-40.jpg', 'kumiko-41.jpg', 'kumiko-42.jpg', 'kumiko-43.jpg', 'kumiko-44.jpg', 'kumiko-45.jpg', 'kumiko-46.jpg', 'kumiko-47.jpg', 'kumiko-48.jpg', 'kumiko-49.jpg', 'kumiko-50.jpg', 'kumiko-51.jpg', 'kumiko-52.jpg', 'kumiko-53.jpg', 'kumiko-54.jpg', 'kumiko-55.jpg', 'kumiko-56.jpg', 'kumiko-57.jpg', 'kumiko-58.jpg', 'kumiko-59.jpg', 'kumiko-60.jpg', 'kumiko-61.jpg', 'kumiko-62.jpg', 'kumiko-63.jpg', 'kumiko-64.jpg', 'kumiko-65.jpg', 'kumiko-66.jpg', 'kumiko-67.jpg', 'kumiko-68.jpg', 'kumiko-69.jpg', 'kumiko-70.jpg'
+    ].map(k => `./public/imgs/${k}`)
+    const bgm = ['07. 松田彬人 - 弾む想い.wav', '05. 松田彬人 - 青春の流転.wav'].map(k => `./public/audios/ost/${k}`)
+    const gibberish = ['1.wav', '3.wav', '4.wav', '5.wav', '6.wav', '7.wav', '8.wav', '9.wav', '11.wav', '12.wav', '13.wav', '14.wav', '15.wav', '16.wav', '17.wav', '18.wav', '19.wav', '20.wav', '21.wav', '23.wav', '24.wav', '25.wav', '26.wav', '27.wav', '28.wav', '29.wav', '30.wav', '31.wav', '32.wav', '33.wav', '34.wav', '35.wav', '36.wav', '37.wav', '38.wav'].map(k => `./public/audios/${k}`)
+
+    const { searchParams } = new URL(window.location.href);
+    const { size } = searchParams
+
+    const KA = new KumikoAwesome(images, 20, 50, gibberish)
+    KA.init('.group')
+
+    randomLoopingMusicPlayer(bgm)
+
+    function randomLoopingMusicPlayer(musicList) {
+      let currentMusicIndex = Math.floor(Math.random() * musicList.length);
+      let audio = new Audio(musicList[currentMusicIndex]);
+      audio.volume = .4
+      audio.addEventListener('ended', function () {
+        currentMusicIndex = (currentMusicIndex + 1) % musicList.length;
+        audio.src = musicList[currentMusicIndex];
+        audio.play();
+      });
+
+      document.addEventListener('click', () => {
+        audio.play()
+        document.removeEventListener('click', arguments.callee);
+      })
+    }
+  </script>
 </body>
 
 </html>
