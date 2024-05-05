@@ -3,8 +3,8 @@ class KumikoAwesome {
   #audiosStack = []
 
   constructor(image, audio) {
-    this.row = Math.ceil(window.innerHeight / 120) * 4
-    this.count = Math.ceil(window.innerWidth / 120) * 8
+    this.row = Math.ceil(window.innerHeight / 120) * 2
+    this.count = window.innerWidth < 720 ?  50 : Math.ceil(window.innerWidth / 120) * 8 
     this.images = [...image]
     this.audios = [...audio]
     console.log(this.row , this.count)
@@ -78,16 +78,15 @@ class KumikoAwesome {
     return new Audio(this.#audiosStack.pop()).play()
   }
 
-  preloadResource(images, audios) {
+  preloadResource() {
     this.images.forEach(val => addPreloadLink(val, 'image'))
     this.audios.forEach(val => addPreloadLink(val, 'audio'))
 
-    function addPreloadLink(href, as, type) {
+    function addPreloadLink(href, as) {
       const linkElement = document.createElement("link")
       linkElement.href = href
       linkElement.rel = 'preload'
       linkElement.as = as
-      linkElement.type = type
       document.head.appendChild(linkElement)
     }
   }
