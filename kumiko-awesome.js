@@ -2,11 +2,12 @@ class KumikoAwesome {
   #imagesStack = []
   #audiosStack = []
 
-  constructor(image, row, count, audio) {
-    this.row = row
-    this.count = count
+  constructor(image, audio) {
+    this.row = parseInt(window.innerHeight / 120) * 4
+    this.count = parseInt(window.innerWidth / 120) * 4
     this.images = [...image]
     this.audios = [...audio]
+    console.log(this.row , this.count)
   }
 
   init(className) {
