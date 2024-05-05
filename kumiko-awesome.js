@@ -36,22 +36,30 @@ class KumikoAwesome {
   }
 
   handEvent(element, id) {
-    const isEvenRow = id % 2 === 0
     let previous = null;
-    let speed = .4;
+    let lastClickTime = 0;
 
     element.addEventListener('click', (e) => {
+      const animationClass = id % 2 === 0 ? 'animation-even' : 'animation-odd'
+      const currentTime = new Date().getTime();
+      
       if (e.target === e.currentTarget) return
-      if (e.target.style.animation !== '') speed = .2;
       if (previous !== null && previous !== e.target) previous.removeEventListener('animationend', removeAnimation)
       if (this.audios.length > 0) this.playRandomKumikoGibberish()
-      e.target.style = `animation: rotate-diagonal-${isEvenRow ? 1 : 2} ${speed}s linear both;`
+      if (currentTime - lastClickTime < 800 &&  previous == e.target) e.target.style.setProperty('--scroll-speed', '0.1s');
+      
+      e.target.classList.toggle(animationClass)
       e.target.src = this.getOneRandomKumikoImage()
       e.target.addEventListener('animationend', removeAnimation)
+
       previous = e.target
+      lastClickTime = currentTime;
     })
 
-    const removeAnimation = (e) => e.target.style = '';
+    const removeAnimation = (e) => { 
+      e.target.className = ''
+      e.target.style.setProperty('--scroll-speed', '0.4s');
+    }
   }
 
   getOneRandomKumikoImage() {

@@ -6,6 +6,7 @@
 
 body {
   background-color: #111;
+  --scroll-speed: 0.4s;
 }
 
 .main-container {
@@ -66,6 +67,14 @@ body {
 
 .no-animation {
   animation: none !important;
+}
+
+.animation-even {
+  animation: rotate-diagonal-1 var(--scroll-speed) linear both;
+}
+
+.animation-odd {
+  animation: rotate-diagonal-2 var(--scroll-speed) linear both;
 }
 
 @keyframes animateEven {
