@@ -4,7 +4,7 @@ class KumikoAwesome {
 
   constructor(image, audio) {
     this.row = Math.ceil(window.innerHeight / 120) * 4
-    this.count = Math.ceil(window.innerWidth / 120) * 6
+    this.count = Math.ceil(window.innerWidth / 120) * 8
     this.images = [...image]
     this.audios = [...audio]
     console.log(this.row , this.count)
