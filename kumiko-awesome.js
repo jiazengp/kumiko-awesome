@@ -3,8 +3,8 @@ class KumikoAwesome {
   #audiosStack = []
 
   constructor(image, audio) {
-    this.row = parseInt(window.innerHeight / 120) * 4
-    this.count = parseInt(window.innerWidth / 120) * 4
+    this.row = Math.ceil(window.innerHeight / 120) * 4
+    this.count = Math.ceil(window.innerWidth / 120) * 6
     this.images = [...image]
     this.audios = [...audio]
     console.log(this.row , this.count)

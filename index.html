@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,viewport-fit=cover">
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover">
   <meta name="apple-mobile-web-app-status-bar-style" content="lack-translucent">
   <meta name="applicable-device" content="pc,mobile">
   <meta name="google" content="notranslate">
@@ -23,6 +24,31 @@
     gtag('js', new Date());
 
     gtag('config', 'G-FWE91T9QLX');
+  </script>
+  <script>
+    // 阻止IOS的缩放函数
+    window.onload = function () {
+      let lastTouchEnd = 0
+      document.addEventListener('touchstart', function (event) {
+        if (event.touches.length > 1) {
+          event.preventDefault()
+        }
+      })
+      document.addEventListener(
+        'touchend',
+        function (event) {
+          var now = new Date().getTime()
+          if (now - lastTouchEnd <= 300) {
+            event.preventDefault()
+          }
+          lastTouchEnd = now
+        },
+        false
+      )
+      document.addEventListener('gesturestart', function (event) {
+        event.preventDefault()
+      })
+    }
   </script>
 </head>
 
